@@ -65,15 +65,14 @@ function main() {
 class Solution{
     remove_duplicate(arr,n){
         //code here
-        let x = 1, i = 1;
-        while(i<n) {
-            while(i < n && arr[i] === arr[x-1]){
-                ++i;
-            }
-            if(i === n) break;
-            arr[x] = arr[i];
-            ++x;++i;
+        let k = 1;
+        for(let i=1;i<n;) {
+            let j=i;
+            while(arr[j] == arr[k-1] && j < n) ++j;
+            if(j == n) break;
+            arr[k++] = arr[j];
+            i = j>i ? j : i+1;   
         }
-        return x;
+        return k;
     }
 }

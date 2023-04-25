@@ -85,15 +85,14 @@ class Solution {
     reverseList(head)
     {
         //your code here
-    if(head == null) return null;
-    let prev = null, curr=head;
-    while(curr != null) {
-        let next = curr.next;
-        curr.next = prev;
-        prev = curr;
-        curr = next;
-    }
-    return prev;
+        let prev = null, next = null;
+        while(head != null) {
+            next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
     }
     
 }
